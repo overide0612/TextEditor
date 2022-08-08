@@ -32,5 +32,14 @@ namespace TextEditor
                 }
             }    
         }
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog1.FileName;
+            string fileText = File.ReadAllText(filename);
+            richTextBox1.Text = fileText;
+            MessageBox.Show("Файл открыт");
+        }
     }
 }
